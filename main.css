@@ -1,177 +1,441 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <script src="https://code.jquery.com/jquery.min.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>CardMaker Pro</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
-  <script type="text/javascript" src="script.js"></script>
-</head>
-<body>
-  <header>    
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <ul class="nav navbar-nav navbar-left pull-left">
-            <li><a href="http://drfarrell.github.io"><strong>Daniel R Farrell</strong></a></li>
-          </ul>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar" id="gone"></span>
-            <span class="icon-bar"></span>
-          </button>    
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://drfarrell.github.io">Portfolio</a></li>
-            <li><a href="http://drfarrell.github.io/Resume/">About</a></li>
-            <li><a href="http://drfarrell.github.io/Contact/">Contact</a></li>
-            <li><a href="https://soundcloud.com/dfaro">Audio</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <div class="jumbotron">
-    <div class="container">
-      <div class="descriptor">
-        <h1>CardMaker Pro</h1>
-        <h2>Alation UX Design Challenge</h2>
-      </div>
-    </div>
-  </div>
-  <div class="project">
-    <div class="br"></div>
-    <div class="container">
-      <div class="row">
-        <div class="overview">
-          <div class="col-md-6">
-            <h3>Abstract</h3>
-            <p>This was a UX redesign of a software called CardMaker Pro which helped streamline the card-writing process for writers at a company called A Personal Touch, Inc. Given samples of previous versions of the product, I needed to take the best features of a recent update and an older version to create a simple and intuitive solution that makes editing cards as easy as possible.</p>
-          </div>
-          <div class="col-md-6" id="quote">
-            <h3><br></h3>
-            <h2><i>"It was significantly easier... I could just scroll and all of the photos and text I needed were right in my view"</i></h2>
-            <div class="decor">
-              <p>  </p>
-              <!--<p><strong><i>{ . . . }</i></strong></p>-->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
-      <div class="commentary">
-        <h2>Assessment of Version 2</h2>
-        <p><br>The intended design goals of Version 2 were to maximize real estate on the page and to make writing the central feature of the entire application. Given the observations of how writers actually use the software (Version 1), it would appear that Version 2 completely neglects the inspiration process of writing the cards, and may have been designed with little to no research. The driving logic behind Version 2 is a centralized landing-application for all of the writer's needs, but the second part of that statement should be essential:<i> all of the writer's needs.</i> The writers of the company complain that Version 2 is unusable today because it's full-screen emphasis and explicit use case of only writing hinders the inspiration aspect of card-composing. 
-          <br>
-      </div>
-      <div class="commentary">
-        <h2>Ideation and Coding</h2>
-        <p><br>I started with a bit of writing to get some initial impressions and ideas down on paper, starting with the requirements of the product to guide the process as a whole. Besides recording my general thoughts, I wrote a list down of certain digital products with similar interfaces and solutions to this type of problem as inspiration. 
-        </p>
-      </div>
-      
-                <img src="https://cloud.githubusercontent.com/assets/14104075/14537961/a58d44ea-0236-11e6-8565-8c0994621aa0.jpg" style="width: 60%; margin-left: 20%; margin-right: 20%"><br>
-   <div class="commentary">
-     <p>After getting a better picture of how I want to approach the solution, I sketched-out some wireframes for some of the designs I was weighing. Considering that this is a UX challenge, I wanted to maximize interaction with my designs by coding a mockup and getting real people to use it, so I heavily annotated each of the designs to be certain I could code it in a reasonable time and that I wouldn’t waste time on a design that wouldn’t be a good solution.</p>
-      </div>
-      <img src="https://cloud.githubusercontent.com/assets/14104075/14537737/880e794e-0235-11e6-84c0-562c2bc755a8.jpg">
-      <div class="commentary">
-        <p>I didn't render any digital mockups in Sketch because I thought pushing-pixels and selecting fonts would be a waste of time. I wanted to get going on coding as soon as possible, as the time it would've taken to make non-interactive mockups is better spent on making something people could use in a challenge like this. I coded two prototypes that blended features from a couple of my designs. From the screenshots I was given and my analysis of the problem it was apparent that there should be a split-view in the fullscreen app with one side devoted to writing and the other towards inspiration. The main difference for these versions was the best way to present the inspiration content. <a href="http://output.jsbin.com/sapuce/3" style="color: #3498db;">Version 2.1.0</a> featured a drop-down list to present pre-made cards as inspiration, and <a href="http://output.jsbin.com/dihuce/2" style="color: #3498db;">Version 2.2.0</a> featured a continuous scrolling list of past cards sorted by relatively arbitrary numbers as inspiration. Please have a look at the links to get a feel for the mockups and a sense of the usability before reading on.
-        </p>
-      </div>
-      <div class="commentary">
-        <h2>User Testing <a href="http://output.jsbin.com/sapuce/3" style="color: #3498db;">2.1.0</a> and <a href="http://output.jsbin.com/dihuce/2" style="color: #3498db;">2.2.0</a></h2>
-        <p><br>I had two different people test both prototypes, my friends Ben and Eva. I started Ben off with design 2.1.0, and Eva with 2.2.0 to see if whatever design they started with would be bias towards picking their favorite of the two. I asked them to pretend as if they were writing a postcard-update on a trip to one of the cities I had prepared cards for. The only requirements were that they complete the card with a photo and text, and that they explicitly take a quote or fact from an inspiration card using copy-paste on their keyboards. With their permission, I recorded the screen as they moved-about the app. I'd ask them questions such as how they're interpreting the overall usability, why they would complete an action in a certain way, and whether something was difficult or non-intuitive.<br></p>
-      </div>
-      <div class="col-md-6 pull-left" style="margin-bottom: 10px;">
-        <img src="https://cloud.githubusercontent.com/assets/14104075/14539447/aa4f46a2-023d-11e6-8926-c3a0bf77901f.jpg" style="height: 360px">
-        <img src="https://cloud.githubusercontent.com/assets/14104075/14539305/1ca4b54e-023d-11e6-88d1-217baba91aa2.jpg">
-                <img src="https://cloud.githubusercontent.com/assets/14104075/14538803/c596828e-023a-11e6-833b-39bf81723c86.gif" style="height: 320px">
-      </div>
-      <div class="col-md-6 pull-right" style="margin-bottom: 10px;">
-        <img src="https://cloud.githubusercontent.com/assets/14104075/14539448/aa5deffe-023d-11e6-9abe-a499ac63f9e8.jpg" style="height: 360px">
-        <img src="https://cloud.githubusercontent.com/assets/14104075/14539306/1cc0a9d4-023d-11e6-9809-251af4ee5452.jpg">
-        <img src="https://cloud.githubusercontent.com/assets/14104075/14540291/7eea322a-0241-11e6-96bf-9163b3d7ffed.gif" style="height: 315px; position: relative; top:-10px;">
-      </div>
-      <div class="commentary" style="margin-top: 20px">
-        <p><br><br><br>The tests went well with both Ben and Eva able to complete the task with minimal aid. Both of them took their time to pick a city or piece of text they really liked with all of the options present. One of the glaring complaints that they had for both versions was the text-editor. They said they didn’t really need any of the features in the editor and that it only cluttered the card. Also, when they would copy text from one side and paste it into another, the font of the text-editor would be different from the copied text. Even using Apple’s auto-formatted-paste command (Shift + Command + V) didn’t work in the editor! For Version 2.1.0, Ben took a little while to find the inspiration cards, and Eva complained that the selection-menu for the cards was too small on the screen. The little bit of copy wasn’t enough to direct their attention to the bottom right corner to access the cards. Version 2.2.0 was much better-received by both users. They were pleasantly surprised to find they could simply scroll-up and down the list of cards to find what they were looking for. When asked about the application as a whole, they both said that adding a photo was the easiest thing to do and that having a stark color-contrast between the sections (as in Version 2.2.0) made it much more obvious where to direct their attention as they glanced from writing to the inspiration cards.  </p>
-      </div>
-      
-      <div class="commentary">
-        <h2>Versions 2.1.0</h2>
-        <h3>Pros</h3>
-        <ul>
-          <li>Clean interface with both cards on the same plane</li>
-          <li>Categorization makes for finding cards easy if you know exactly what topic or place you're looking for</li>
-          <li>Uploading a photo was extremely easy</li>  
-        </ul>
-        <h3>Cons</h3>
-        <ul>
-          <li>Text box editor doesn't use the same font</li>
-          <li>Text box editor has too much functionality / unnecessary features</li>
-          <li>Cards aren't scaleable. Variety of sizes looks weird and the screen can't fit cards that are larger than the template</li>
-          <li>Lack of search functionality may make it hard to find content</li>
-          <li>Navigating between topics is tedious.</li>
-          <li>Inspiration-side copy isn't very succesful in directing the user's attention to the lower right</li>
-          <li>Category drop-down menu button isn't the same style as other buttons or big enough to be noticed</li>
-          
-        </ul>
-        <br>
-        <h2>Versions 2.2.0</h2>
-        <h3>Pros</h3>
-        <ul>
-          <li>Explicitly divided the functional sections of the app</li>
-          <li>Allowed for scrolling-through inspiration content very quickly</li>
-          <li>Scaleable cards allow for variety of sizes</li>
-          <li>Uploading a photo was extremely easy</li>  
-        </ul>
-        <h3>Cons</h3>
-        <ul>
-          <li>Text box editor doesn't use the same font</li>
-          <li>Text box editor has too much functionality / unnecessary features</li>
-          <li>Cards aren't sorted in an order or categorized</li>
-          <li>Lack of search functionality may make it hard to find content</li>
-          <li>Complaint of not enough photos and visual pieces of inspiration</li>
-          <li>Copy isn't instructive-enough to make the process and task super obvious</li>
-        </ul>
-      </div>
-        
-      <div class="commentary">
-        <h2>Final Design Assessment</h2>
-        <p>Both of my users preferred Version 2.2.0 to Version 2.1.0, as the interface presented a clear divide in the workspace, inspiration content was immedietely accessible, and it was ultimately the most scaleable. Looking forward, I'd continue to flesh-out <strong>Version 2.2.0</strong> if I were to continue the design process. For users that have experience with the application and don't need a lot of direction, Version 2.2.0 is a practical solution. Version 2.2.0 doesn't need to be dramatically altered aside from some copy and navigation for a first time user. The main differentiator that would need to be added for a new user would be directions for the explicit task, and some familiar navigation / UI icons like arrows on the inspiration-side to indicate scrollability or a photo icon in the middle of the photo-upload box.<br><br><br></p>
-        <h2>Project Stats</h2>
-        <p>Total time: About 10 hours spread-out over a weekend including coding, drawing, UX research, writing, ideation<br><br>
-          Physical tools: Ballpoint pen, gray sharpie, printer paper<br><br> 
-          Digital tools: <a href="https://jsbin.com/">JS Bin</a>
-        </p>
-      </div>
-    </div>
-    <div class="nextproject">
-      <div class="container">
-        <div class="row" id="bottom">
-          <a href="http://drfarrell.github.io/">
-            <div class="col-md-6 pull-left"><h3><span class="glyphicon glyphicon-triangle-left"></span> Return to</h3><br><h2>Portfolio</h2></div>
-          </a>
-<a href="http://drfarrell.github.io/WthoutLanding/">
-            <div class="col-md-6 pull-right"><h3> Explore Project <span class="glyphicon glyphicon-triangle-right"></span></h3><br><h2>Wthout Landing Page</h2></div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <h4>Copyright Daniel R Farrell 2016 · Handcoded in Colorado</h4>
-    </div>
-  </footer>
-</body>
-</html>
+* {
+    margin: 0;
+    padding: 0;
+}
 
+.hover {
+-webkit-user-select: none;
+-webkit-touch-callout: none;        
+}
+
+/*------------------------------------------Fonts---*/
+
+body {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-weight: regular; 
+  color: #515357;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 5em;
+}
+
+h2 {
+  /*font-family: 'PT Serif', serif;*/
+  font-weight: 300;
+  line-height: 120%;
+  font-size: 2em;
+}
+
+h3 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+
+h4 {
+  font-size: 0.9em;
+  color: #8B8B8B;
+}
+
+p {
+  color: #8B8B8B;
+  font-family: 'PT Serif', serif;
+  font-size: 1.2em;
+}
+
+a {
+  text-decoration: none;
+  color: #3B3B3B;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+a:hover {
+  text-decoration:none;
+  color: #3498db;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+a:hover_effect {
+  text-decoration:none;
+  color: #3498db;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.commentary ul {
+  padding-left: 30px; 
+  font-family: 'PT Serif', serif;
+  font-size: 1.2em;
+  color: #8B8B8B;
+}
+
+/*------------------------------------------Navbar---*/
+
+.navbar-default .navbar-nav > li > a {
+  color: white; 
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #3498db;
+}
+
+.navbar-default .navbar-nav > li > a:hover_effect {
+  color: #3498db;
+}
+
+.navbar {
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 0px;
+  border-width: 0px;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+.navbar .container{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.navbar-brand {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin: auto;
+}
+
+button {
+  position: relative;
+  top: 3px;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1.05em;
+}
+
+header li {
+  float: right;
+  display: inline;
+}
+
+#gone {
+  opacity: 0;
+}
+
+/*------------------------------------------Jumbotron---*/
+.jumbotron {
+  padding: 100px;
+  
+  /*-Gradient-*/
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(230,230,230,1) 47%, rgba(255,255,255,1) 61%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(47%, rgba(238,238,238,1)), color-stop(61%, rgba(255,255,255,1)), color-stop(69%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(238,238,238,1) 47%, rgba(255,255,255,1) 61%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(238,238,238,1) 47%, rgba(255,255,255,1) 61%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(238,238,238,1) 47%, rgba(255,255,255,1) 61%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 65%, rgba(240,240,240,1) 65%, rgba(255,255,255,1) 85%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+}
+
+.descriptor {
+  padding-left: 0%;
+  padding-right: 32%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+/*------------------------------------------Project---*/
+
+.overview {
+  margin-bottom: -150px;
+  margin-top: 20px;
+}
+
+.br {
+  padding: 2px;
+  background-color: #3498db;
+}
+
+.project {
+  background-color: #FDFDFD;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  margin-top: -30px;
+}
+
+#quote {
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  margin-top: -30px;
+}
+
+#quote h2 {
+  font-size: 2.4em;
+}
+
+.commentary {
+  padding-left: 17%;
+  padding-right: 17%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#copy h2{
+  text-align: center;
+  font-size: 1.6em;
+}
+
+.decor {
+  z-index: 1;
+  position: relative;
+  top: -130px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.decor p {
+  font-size: 10em;
+  font-family: "Times New Roman", Times, serif;
+  opacity: 0.15;
+  color: rgba(255,90,95,1);
+  height: 30px;
+  line-height: 100px;
+  
+}
+
+img {
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/*-----------------------------Project Navigation---*/
+
+.nextproject {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.nextproject h3 {
+  margin-bottom: -35px;
+  font-size: 0.9em;
+}
+
+
+.glyphicon-triangle-left {
+  position: relative;
+  top: 2px;
+  -webkit-transition: right 0.2s;
+  transition: right 0.2s;
+}
+.glyphicon-triangle-right {
+  position: relative;
+  top: 2px;
+  -webkit-transition: left 0.2s;
+  transition: left 0.2s;
+}
+
+#bottom .pull-left {
+  position: relative;
+  -webkit-transition: right 0.2s;
+  transition: right 0.2s;
+}
+
+#bottom .pull-left:hover  {
+  position: relative;
+  right: 4px;
+  -webkit-transition: right 0.2s;
+  transition: right 0.2s;
+}
+
+.pull-left:hover .glyphicon {
+  position: relative;
+  right: 8px;
+  -webkit-transition: right 0.2s;
+  transition: right 0.2s;
+}
+
+#bottom .pull-right {
+  text-align: right;
+  -webkit-transition: left 0.2s;  
+  transition: left 0.2s;
+}
+
+#bottom .pull-right:hover {
+  position: relative;
+  left: 4px;
+  -webkit-transition: left 0.2s;
+  transition: left 0.2s;
+}
+
+.pull-right:hover .glyphicon {
+  position: relative;
+  left: 8px;
+  -webkit-transition: left 0.2s;
+  transition: left 0.2s;
+}
+
+
+/*------------------------------------------Footer---*/
+footer {
+  background-color: none; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#social {
+  float: right;
+}
+
+@media(max-width: 991px){
+ 
+  .navbar .container {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+  
+  .decor {
+    position: relative;
+    top: 120px !important;
+  }
+  
+  .decor p {
+    height: 190px;
+    line-height: 20px;
+    position: relative;
+    top: -260px;
+  }
+  
+}
+
+@media(max-width: 767px){
+ 
+  .navbar .container {
+    padding-right: 15px !important;
+    padding-left: 35px !important;
+  }
+  
+  .commentary {
+  padding-left: 12%;
+  padding-right: 12%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  }
+
+
+}
+
+@media(max-width: 720px){
+ 
+  h1 {
+    font-weight: 700;
+    font-size: 3.2em;
+  }
+
+  h2 {
+    font-weight: 200;
+    line-height: 120%;
+    font-size: 1.7em;
+  }
+  
+  .navbar .container{
+    padding-right: 15px;
+    padding-left: 33px;
+  }
+  
+  .project .container{
+    margin: 1%;
+  }
+  
+  .jumbotron {
+    padding: 15% 0px 10% 0px;
+  }
+  
+  .decor {
+    position: relative;
+    top: 120px !important;
+  }
+  
+  .decor p {
+    height: 190px;
+    line-height: 20px;
+    position: relative;
+    top: -260px;
+  }
+  
+  .overview {
+  margin-bottom: -140px;
+  margin-top: 20px;
+  }
+  
+  .descriptor {
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+
+}
+
+@media(max-width: 662px){
+  
+  .decor p {
+    top: -200px !important;
+    font-size: 10em !important;
+  }
+   
+  .commentary {
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+ }
+
+}
+
+
+@media(max-width: 412px){
+  
+  .decor p {
+    font-size: 8em !important;
+    top: -280px !important;
+  }
+   
+  #quote h2 {
+    font-size: 2.0em;
+  }
+  
+  #quote {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  img {
+    width: 100%;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .commentary {
+  padding-left: 0%;
+  padding-right: 0%;
+ }
+  
+}
 
