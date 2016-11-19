@@ -256,6 +256,7 @@ img {
   position: relative;
   -webkit-transition: right 0.2s;
   transition: right 0.2s;
+  right: 0px;
 }
 
 #bottom .pull-left:hover  {
@@ -276,6 +277,7 @@ img {
   text-align: right;
   -webkit-transition: left 0.2s;  
   transition: left 0.2s;
+ left: 0px;
 }
 
 #bottom .pull-right:hover {
