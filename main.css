@@ -3,6 +3,14 @@ html, body {
     overflow-x: hidden;
 }
 
+::-moz-selection {
+    background: #FFCAC6; color: white
+}
+::selection {
+    background: #FFCAC6; color: white
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -10,14 +18,34 @@ html, body {
 
 .hover {
 -webkit-user-select: none;
--webkit-touch-callout: none;        
+-webkit-touch-callout: none;
 }
 
 /*------------------------------------------Fonts---*/
 
+/** Bold */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 700;
+  src: url("https://sf.abarba.me/SF-UI-Display-Bold.otf");
+}
+
+/** Heavy */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 800;
+  src: url("https://sf.abarba.me/SF-UI-Display-Heavy.otf");
+}
+
+/** Regular */
+@font-face {
+  font-family: "SF Display";
+  font-weight: 400;
+  src: url("https://sf.abarba.me/SF-UI-Display-Regular.otf");
+}
+
 body {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  font-weight: regular; 
+  font-family: "SF Display", -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
   color: #515357;
 }
 
@@ -52,27 +80,27 @@ p {
 
 a {
   text-decoration: none;
-  color: #3B3B3B;
+  color: #FFCAC6;
   -webkit-transition: color 0.5s;
   transition: color 0.5s;
 }
 
 a:hover {
   text-decoration:none;
-  color: #3498db;
+  color: #EBB6B2;
   -webkit-transition: color 0.2s;
   transition: color 0.2s;
 }
 
 a:hover_effect {
   text-decoration:none;
-  color: #3498db;
+  color: #EBB6B2;
   -webkit-transition: color 0.2s;
   transition: color 0.2s;
 }
 
 .commentary ul {
-  padding-left: 30px; 
+  padding-left: 30px;
   font-family: 'PT Serif', serif;
   font-size: 1.2em;
   color: #8B8B8B;
@@ -81,15 +109,15 @@ a:hover_effect {
 /*------------------------------------------Navbar---*/
 
 .navbar-default .navbar-nav > li > a {
-  color: white; 
+  color: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-  color: #3498db;
+  color: #EBB6B2;
 }
 
 .navbar-default .navbar-nav > li > a:hover_effect {
-  color: #3498db;
+  color: #EBB6B2;
 }
 
 .navbar {
@@ -139,16 +167,7 @@ header li {
 /*------------------------------------------Jumbotron---*/
 .jumbotron {
   padding: 100px;
-  
-  /*-Gradient-*/
   background: rgba(255,255,255,1);
-  background: -moz-linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(230,230,230,1) 47%, rgba(255,255,255,1) 61%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(47%, rgba(238,238,238,1)), color-stop(61%, rgba(255,255,255,1)), color-stop(69%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
-  background: -webkit-linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(238,238,238,1) 47%, rgba(255,255,255,1) 61%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
-  background: -o-linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(238,238,238,1) 47%, rgba(255,255,255,1) 61%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
-  background: -ms-linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(238,238,238,1) 47%, rgba(255,255,255,1) 61%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
-  background: linear-gradient(110deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 65%, rgba(240,240,240,1) 65%, rgba(255,255,255,1) 85%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
 }
 
 .descriptor {
@@ -167,7 +186,7 @@ header li {
 
 .br {
   padding: 2px;
-  background-color: #3498db;
+  background-color: #FFCAC6;
 }
 
 .project {
@@ -217,7 +236,7 @@ header li {
   color: rgba(255,90,95,1);
   height: 30px;
   line-height: 100px;
-  
+
 }
 
 img {
@@ -277,7 +296,7 @@ img {
 
 #bottom .pull-right {
   text-align: right;
-  -webkit-transition: left 0.2s;  
+  -webkit-transition: left 0.2s;
   transition: left 0.2s;
  left: 0px;
 }
@@ -299,7 +318,7 @@ img {
 
 /*------------------------------------------Footer---*/
 footer {
-  background-color: none; 
+  background-color: none;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -309,33 +328,33 @@ footer {
 }
 
 @media(max-width: 991px){
- 
+
   .navbar .container {
     padding-right: 0px !important;
     padding-left: 0px !important;
   }
-  
+
   .decor {
     position: relative;
     top: 120px !important;
   }
-  
+
   .decor p {
     height: 190px;
     line-height: 20px;
     position: relative;
     top: -260px;
   }
-  
+
 }
 
 @media(max-width: 767px){
- 
+
   .navbar .container {
     padding-right: 15px !important;
     padding-left: 35px !important;
   }
-  
+
   .commentary {
   padding-left: 12%;
   padding-right: 12%;
@@ -347,7 +366,7 @@ footer {
 }
 
 @media(max-width: 720px){
- 
+
   h1 {
     font-weight: 700;
     font-size: 3.2em;
@@ -358,37 +377,37 @@ footer {
     line-height: 120%;
     font-size: 1.7em;
   }
-  
+
   .navbar .container{
     padding-right: 15px;
     padding-left: 33px;
   }
-  
+
   .project .container{
     margin: 1%;
   }
-  
+
   .jumbotron {
     padding: 15% 0px 10% 0px;
   }
-  
+
   .decor {
     position: relative;
     top: 120px !important;
   }
-  
+
   .decor p {
     height: 190px;
     line-height: 20px;
     position: relative;
     top: -260px;
   }
-  
+
   .overview {
   margin-bottom: -140px;
   margin-top: 20px;
   }
-  
+
   .descriptor {
     padding-top: 10%;
     padding-bottom: 10%;
@@ -397,12 +416,12 @@ footer {
 }
 
 @media(max-width: 662px){
-  
+
   .decor p {
     top: -200px !important;
     font-size: 10em !important;
   }
-   
+
   .commentary {
   padding-left: 8%;
   padding-right: 8%;
@@ -414,32 +433,31 @@ footer {
 
 
 @media(max-width: 412px){
-  
+
   .decor p {
     font-size: 8em !important;
     top: -280px !important;
   }
-   
+
   #quote h2 {
     font-size: 2.0em;
   }
-  
+
   #quote {
     padding-left: 10px;
     padding-right: 10px;
   }
-  
+
   img {
     width: 100%;
     margin: 0;
     padding-top: 15px;
     padding-bottom: 15px;
   }
-  
+
   .commentary {
   padding-left: 0%;
   padding-right: 0%;
  }
-  
-}
 
+}
